@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DotNetNinjaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Equipment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="strength" Type="int" Nullable="false" />
+    <Property Name="agility" Type="int" Nullable="false" />
+    <Property Name="intelligence" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="naam" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="gold" Type="int" Nullable="false" />
+    <Property Name="type" Type="nchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ninja">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="gold" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DotNetNinja.dbo.NinjaContent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="NinjaContent">
+    <Key>
+      <PropertyRef Name="Ninja_id" />
+      <PropertyRef Name="Equipment_id" />
+    </Key>
+    <Property Name="Ninja_id" Type="int" Nullable="false" />
+    <Property Name="Equipment_id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_NinjaContent_Equipment">
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+    <End Role="NinjaContent" Type="Self.NinjaContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="NinjaContent">
+        <PropertyRef Name="Equipment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NinjaContent_Ninja">
+    <End Role="Ninja" Type="Self.Ninja" Multiplicity="1" />
+    <End Role="NinjaContent" Type="Self.NinjaContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ninja">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="NinjaContent">
+        <PropertyRef Name="Ninja_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DotNetNinjaModelStoreContainer">
+    <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ninja" EntityType="Self.Ninja" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NinjaContent" EntityType="Self.NinjaContent" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [NinjaContent].[Ninja_id] AS [Ninja_id], 
+    [NinjaContent].[Equipment_id] AS [Equipment_id]
+    FROM [dbo].[NinjaContent] AS [NinjaContent]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_NinjaContent_Equipment" Association="Self.FK_NinjaContent_Equipment">
+      <End Role="Equipment" EntitySet="Equipment" />
+      <End Role="NinjaContent" EntitySet="NinjaContent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NinjaContent_Ninja" Association="Self.FK_NinjaContent_Ninja">
+      <End Role="Ninja" EntitySet="Ninja" />
+      <End Role="NinjaContent" EntitySet="NinjaContent" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,77 @@
+18-10-2016 19:49:57	This log contains information about the import schema operation into project 'DotNetNinjaDatabase' on computer 'LENOVO-STEFAN' by user 'stefan'.
+18-10-2016 19:49:58	Import of database schema has started.
+18-10-2016 19:50:05	Gathering database options
+18-10-2016 19:50:05	Gathering users
+18-10-2016 19:50:05	Gathering roles
+18-10-2016 19:50:05	Gathering application roles
+18-10-2016 19:50:05	Gathering role memberships
+18-10-2016 19:50:05	Gathering filegroups
+18-10-2016 19:50:05	Gathering full-text catalogs
+18-10-2016 19:50:05	Gathering assemblies
+18-10-2016 19:50:05	Gathering certificates
+18-10-2016 19:50:05	Gathering asymmetric keys
+18-10-2016 19:50:05	Gathering symmetric keys
+18-10-2016 19:50:05	Gathering encrypted symmetric keys
+18-10-2016 19:50:05	Gathering schemas
+18-10-2016 19:50:13	Gathering XML schema collections
+18-10-2016 19:50:13	Gathering user-defined data types
+18-10-2016 19:50:13	Gathering user-defined types
+18-10-2016 19:50:13	Gathering table types
+18-10-2016 19:50:13	Gathering unique keys for table types
+18-10-2016 19:50:13	Gathering primary keys for table types
+18-10-2016 19:50:13	Gathering indexes for table types
+18-10-2016 19:50:13	Gathering check constraints for table types
+18-10-2016 19:50:13	Gathering default constraints for table types
+18-10-2016 19:50:13	Gathering partition functions
+18-10-2016 19:50:13	Gathering partition schemes
+18-10-2016 19:50:13	Gathering functions
+18-10-2016 19:50:13	Gathering encrypted functions
+18-10-2016 19:50:13	Gathering aggregates
+18-10-2016 19:50:13	Gathering procedures
+18-10-2016 19:50:13	Gathering encrypted procedures
+18-10-2016 19:50:13	Gathering tables
+18-10-2016 19:50:13	Gathering primary keys
+18-10-2016 19:50:13	Gathering unique constraints
+18-10-2016 19:50:13	Gathering foreign keys
+18-10-2016 19:50:13	Gathering default constraints
+18-10-2016 19:50:13	Gathering check constraints
+18-10-2016 19:50:13	Gathering views
+18-10-2016 19:50:13	Gathering encrypted views
+18-10-2016 19:50:13	Gathering indexes
+18-10-2016 19:50:13	Gathering statistics
+18-10-2016 19:50:13	Gathering full-text index stoplists
+18-10-2016 19:50:13	Gathering search property lists
+18-10-2016 19:50:13	Gathering search properties
+18-10-2016 19:50:13	Gathering full-text indexes
+18-10-2016 19:50:13	Gathering column store indexes
+18-10-2016 19:50:13	Gathering spatial indexes
+18-10-2016 19:50:13	Gathering XML indexes
+18-10-2016 19:50:13	Gathering Selective XML indexes
+18-10-2016 19:50:13	Gathering encrypted triggers
+18-10-2016 19:50:13	Gathering triggers
+18-10-2016 19:50:13	Gathering encrypted and clr ddl triggers
+18-10-2016 19:50:13	Gathering ddl triggers
+18-10-2016 19:50:13	Gathering synonyms
+18-10-2016 19:50:13	Gathering defaults
+18-10-2016 19:50:13	Gathering data constraint uddt bindings
+18-10-2016 19:50:13	Gathering rules
+18-10-2016 19:50:13	Gathering data constraint uddt bindings
+18-10-2016 19:50:13	Gathering message types
+18-10-2016 19:50:13	Gathering queues
+18-10-2016 19:50:13	Gathering contracts
+18-10-2016 19:50:13	Gathering services
+18-10-2016 19:50:13	Gathering event notifications
+18-10-2016 19:50:13	Gathering remote service bindings
+18-10-2016 19:50:13	Gathering broker priorities
+18-10-2016 19:50:13	Gathering signatures
+18-10-2016 19:50:13	Gathering data compression options
+18-10-2016 19:50:13	Gathering sequence types
+18-10-2016 19:50:13	Gathering extended properties
+18-10-2016 19:50:13	Gathering credentials
+18-10-2016 19:50:13	Gathering logins
+18-10-2016 19:50:13	Gathering server audits
+18-10-2016 19:50:14	Scanning project for duplicate elements
+18-10-2016 19:50:14	Finished duplicate element processing
+18-10-2016 19:50:15	Finished importing database.
+18-10-2016 19:50:15	A summary of the import was saved to the following location: C:\Users\stefan\Desktop\DotNetNinja\DotNetNinjaDatabase\Import Schema Logs\DotNetNinjaDatabase_20161018054957.log
+18-10-2016 19:50:15	Click Finish to continue...

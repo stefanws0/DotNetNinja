@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DotNetNinjaModelStoreContainer" CdmEntityContainer="DotNetNinjaEntities2">
+    <EntitySetMapping Name="Ninja">
+      <EntityTypeMapping TypeName="DotNetNinjaModel.Ninja">
+        <MappingFragment StoreEntitySet="Ninja">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="gold" ColumnName="gold" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DotNetNinjaModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equipment">
+      <EntityTypeMapping TypeName="DotNetNinjaModel.Equipment">
+        <MappingFragment StoreEntitySet="Equipment">
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="gold" ColumnName="gold" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="intelligence" ColumnName="intelligence" />
+          <ScalarProperty Name="agility" ColumnName="agility" />
+          <ScalarProperty Name="strength" ColumnName="strength" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="NinjaContent" TypeName="DotNetNinjaModel.NinjaContent" StoreEntitySet="NinjaContent">
+      <EndProperty Name="Ninja">
+        <ScalarProperty Name="id" ColumnName="Ninja_id" />
+      </EndProperty>
+      <EndProperty Name="Equipment">
+        <ScalarProperty Name="id" ColumnName="Equipment_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

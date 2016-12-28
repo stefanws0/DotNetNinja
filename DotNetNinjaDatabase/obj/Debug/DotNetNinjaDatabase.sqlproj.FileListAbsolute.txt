@@ -1,0 +1,5 @@
+C:\Users\stefan\Desktop\DotNetNinja\DotNetNinjaDatabase\bin\Debug\DotNetNinjaDatabase.dacpac
+C:\Users\stefan\Desktop\DotNetNinja\DotNetNinjaDatabase\bin\Debug\DotNetNinjaDatabase.dll
+C:\Users\stefan\Desktop\DotNetNinja\DotNetNinjaDatabase\bin\Debug\DotNetNinjaDatabase.pdb
+C:\Users\stefan\Desktop\DotNetNinja\DotNetNinjaDatabase\obj\Debug\DotNetNinjaDatabase.dll
+C:\Users\stefan\Desktop\DotNetNinja\DotNetNinjaDatabase\obj\Debug\DotNetNinjaDatabase.pdb

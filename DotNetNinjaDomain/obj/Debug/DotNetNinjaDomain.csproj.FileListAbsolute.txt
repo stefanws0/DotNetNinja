@@ -1,0 +1,9 @@
+C:\Users\stefan\Desktop\DotNetNinja\DotNetNinjaDomain\bin\Debug\DotNetNinjaDomain.dll.config
+C:\Users\stefan\Desktop\DotNetNinja\DotNetNinjaDomain\bin\Debug\DotNetNinjaDomain.dll
+C:\Users\stefan\Desktop\DotNetNinja\DotNetNinjaDomain\bin\Debug\DotNetNinjaDomain.pdb
+C:\Users\stefan\Desktop\DotNetNinja\DotNetNinjaDomain\bin\Debug\EntityFramework.dll
+C:\Users\stefan\Desktop\DotNetNinja\DotNetNinjaDomain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\stefan\Desktop\DotNetNinja\DotNetNinjaDomain\bin\Debug\EntityFramework.xml
+C:\Users\stefan\Desktop\DotNetNinja\DotNetNinjaDomain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\stefan\Desktop\DotNetNinja\DotNetNinjaDomain\obj\Debug\DotNetNinjaDomain.dll
+C:\Users\stefan\Desktop\DotNetNinja\DotNetNinjaDomain\obj\Debug\DotNetNinjaDomain.pdb

@@ -1,0 +1,19 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Equipment] (Table)
+       [dbo].[Ninja] (Table)
+       [dbo].[NinjaContent] (Table)
+       [dbo].[FK_NinjaContent_Equipment] (Foreign Key)
+       [dbo].[FK_NinjaContent_Ninja] (Foreign Key)
+
+** Supporting actions

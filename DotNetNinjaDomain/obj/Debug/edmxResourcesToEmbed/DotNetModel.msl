@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DotNetNinjaModelStoreContainer" CdmEntityContainer="DotNetNinjaEntities">
+    <EntitySetMapping Name="Equipment">
+      <EntityTypeMapping TypeName="DotNetNinjaModel.Equipment">
+        <MappingFragment StoreEntitySet="Equipment">
+          <ScalarProperty Name="strength" ColumnName="strength" />
+          <ScalarProperty Name="agility" ColumnName="agility" />
+          <ScalarProperty Name="intelligence" ColumnName="intelligence" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="naam" ColumnName="naam" />
+          <ScalarProperty Name="gold" ColumnName="gold" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ninja">
+      <EntityTypeMapping TypeName="DotNetNinjaModel.Ninja">
+        <MappingFragment StoreEntitySet="Ninja">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gold" ColumnName="gold" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="NinjaContent" TypeName="DotNetNinjaModel.NinjaContent" StoreEntitySet="NinjaContent">
+      <EndProperty Name="Equipment">
+        <ScalarProperty Name="id" ColumnName="Equipment_id" />
+      </EndProperty>
+      <EndProperty Name="Ninja">
+        <ScalarProperty Name="id" ColumnName="Ninja_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

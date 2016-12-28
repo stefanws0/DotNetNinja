@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DotNetNinjaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="strength" Type="int" Nullable="false" />
+          <Property Name="agility" Type="int" Nullable="false" />
+          <Property Name="intelligence" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="naam" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="gold" Type="int" Nullable="false" />
+          <Property Name="type" Type="nchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ninja">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="gold" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DotNetNinja.dbo.NinjaContent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NinjaContent">
+          <Key>
+            <PropertyRef Name="Ninja_id" />
+            <PropertyRef Name="Equipment_id" />
+          </Key>
+          <Property Name="Ninja_id" Type="int" Nullable="false" />
+          <Property Name="Equipment_id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_NinjaContent_Equipment">
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+          <End Role="NinjaContent" Type="Self.NinjaContent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="NinjaContent">
+              <PropertyRef Name="Equipment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NinjaContent_Ninja">
+          <End Role="Ninja" Type="Self.Ninja" Multiplicity="1" />
+          <End Role="NinjaContent" Type="Self.NinjaContent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ninja">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="NinjaContent">
+              <PropertyRef Name="Ninja_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DotNetNinjaModelStoreContainer">
+          <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ninja" EntityType="Self.Ninja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NinjaContent" EntityType="Self.NinjaContent" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [NinjaContent].[Ninja_id] AS [Ninja_id], 
+    [NinjaContent].[Equipment_id] AS [Equipment_id]
+    FROM [dbo].[NinjaContent] AS [NinjaContent]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_NinjaContent_Equipment" Association="Self.FK_NinjaContent_Equipment">
+            <End Role="Equipment" EntitySet="Equipment" />
+            <End Role="NinjaContent" EntitySet="NinjaContent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NinjaContent_Ninja" Association="Self.FK_NinjaContent_Ninja">
+            <End Role="Ninja" EntitySet="Ninja" />
+            <End Role="NinjaContent" EntitySet="NinjaContent" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DotNetNinjaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="strength" Type="Int32" Nullable="false" />
+          <Property Name="agility" Type="Int32" Nullable="false" />
+          <Property Name="intelligence" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="naam" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="gold" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Ninja" Relationship="Self.NinjaContent" FromRole="Equipment" ToRole="Ninja" />
+        </EntityType>
+        <EntityType Name="Ninja">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="gold" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Equipment" Relationship="Self.NinjaContent" FromRole="Ninja" ToRole="Equipment" />
+        </EntityType>
+        <Association Name="NinjaContent">
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <End Role="Ninja" Type="Self.Ninja" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DotNetNinjaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Equipment" EntityType="Self.Equipment" />
+          <EntitySet Name="Ninja" EntityType="Self.Ninja" />
+          <AssociationSet Name="NinjaContent" Association="Self.NinjaContent">
+            <End Role="Equipment" EntitySet="Equipment" />
+            <End Role="Ninja" EntitySet="Ninja" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DotNetNinjaModelStoreContainer" CdmEntityContainer="DotNetNinjaEntities">
+          <EntitySetMapping Name="Equipment">
+            <EntityTypeMapping TypeName="DotNetNinjaModel.Equipment">
+              <MappingFragment StoreEntitySet="Equipment">
+                <ScalarProperty Name="strength" ColumnName="strength" />
+                <ScalarProperty Name="agility" ColumnName="agility" />
+                <ScalarProperty Name="intelligence" ColumnName="intelligence" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="naam" ColumnName="naam" />
+                <ScalarProperty Name="gold" ColumnName="gold" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ninja">
+            <EntityTypeMapping TypeName="DotNetNinjaModel.Ninja">
+              <MappingFragment StoreEntitySet="Ninja">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="gold" ColumnName="gold" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="NinjaContent" TypeName="DotNetNinjaModel.NinjaContent" StoreEntitySet="NinjaContent">
+            <EndProperty Name="Equipment">
+              <ScalarProperty Name="id" ColumnName="Equipment_id" />
+            </EndProperty>
+            <EndProperty Name="Ninja">
+              <ScalarProperty Name="id" ColumnName="Ninja_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
